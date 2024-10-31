@@ -23,6 +23,11 @@ export class BusinessImpactAnalysisService {
     this.biaApprovals.push(newApproval);
   }
 
+   // Retrieves a specific BIA approval based on its ID.
+   getBiaApproval(id: number): BiaApproval | undefined {
+    return this.biaApprovals.find(approval => approval.id === id);
+  }
+
   // Updates the specific properties of a BIA approval based on the ID. The updatedApproval parameter is partial, so only certain fields need to be provided.
   editBiaApproval(id: number, updatedApproval: Partial<BiaApproval>): BiaApproval | undefined {
     const approvalIndex = this.biaApprovals.findIndex(approval => approval.id === id);
