@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BiaApprovalComponent } from './bia-approval.component';
+import { AddBiaApprovalComponent } from './add-bia-approval.component';
 
-describe('BiaApprovalComponent', () => {
-  let component: BiaApprovalComponent;
-  let fixture: ComponentFixture<BiaApprovalComponent>;
+describe('AddBiaApprovalComponent', () => {
+  let component: AddBiaApprovalComponent;
+  let fixture: ComponentFixture<AddBiaApprovalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BiaApprovalComponent]
+      imports: [AddBiaApprovalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BiaApprovalComponent);
+    fixture = TestBed.createComponent(AddBiaApprovalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
