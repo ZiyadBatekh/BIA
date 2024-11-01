@@ -1,9 +1,30 @@
 {
+  "addBiaApproval": {
+    "title": "إضافة موافقة BIA",
+    "approvalId": "رقم الموافقة",
+    "enterApprovalId": "أدخل رقم الموافقة",
+    "approvalName": "اسم الموافقة",
+    "enterApprovalName": "أدخل اسم الموافقة",
+    "status": "الحالة",
+    "selectStatus": "اختر الحالة",
+    "approved": "موافق عليه",
+    "pending": "معلق",
+    "cancelled": "ملغى",
+    "startDate": "تاريخ البدء",
+    "endDate": "تاريخ الانتهاء",
     "save": "حفظ",
     "cancel": "إلغاء",
-    "approve": "موافقة",
-    "cancelApproval": "إلغاء الموافقة",
-    "saveChanges": "حفظ التغييرات",
-    "cancelEdit": "إلغاء التعديل"
+    "confirmation": {
+      "title": "تأكيد الإلغاء",
+      "message": "هل أنت متأكد أنك تريد الإلغاء؟",
+      "yes": "نعم",
+      "no": "لا"
+    }
+  },
+  "editBiaApproval": {
+    "title": "تعديل موافقة BIA",
+    "biaUpdated": "تم تحديث موافقة BIA بنجاح!",
+    "confirmCancel": "هل أنت متأكد أنك تريد الإلغاء؟",
+    "cancel": "إلغاء"
   }
-  
+}

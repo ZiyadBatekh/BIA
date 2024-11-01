@@ -15,15 +15,36 @@
     "SETTINGS": "Settings"
   },
   "FORM": {
-    "TITLE": "Approval Form",
-    "DESCRIPTION": "Please enter approval form details",
-    "REVIEWER": "Reviewer",
-    "APPROVER": "Approver",
-    "STATUS": "Status",
-    "APPROVAL_DATE": "Approval Date",
-    "NEXT_REVIEW_DATE": "Next Review Date",
-    "SAVE_DRAFT": "Save Draft",
-    "CANCEL": "Cancel",
-    "SAVE": "Save"
+    
+      "addBiaApproval": {
+        "title": "Add BIA Approval",
+        "approvalId": "Approval ID",
+        "enterApprovalId": "Enter Approval ID",
+        "approvalName": "Approval Name",
+        "enterApprovalName": "Enter Approval Name",
+        "status": "Status",
+        "selectStatus": "Select Status",
+        "approved": "Approved",
+        "pending": "Pending",
+        "cancelled": "Cancelled",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "save": "Save",
+        "cancel": "Cancel",
+        "confirmation": {
+          "title": "Confirm Cancel",
+          "message": "Are you sure you want to cancel?",
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "editBiaApproval": {
+        "title": "Edit BIA Approval",
+        "biaUpdated": "BIA Approval Updated Successfully!",
+        "confirmCancel": "Are you sure you want to cancel?",
+        "cancel": "Cancel"
+      }
+    }
+    
   }
-}
+

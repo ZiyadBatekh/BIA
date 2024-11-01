@@ -9,27 +9,30 @@ import { ConfirmationDialogComponent } from '../../shared/confirmation-dialog/co
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './add-bia-approval.component.html',
-  styleUrl: './add-bia-approval.component.scss'
+  styleUrls: ['./add-bia-approval.component.scss'] // Note the change here from styleUrl to styleUrls
 })
 export class AddBiaApprovalComponent {
   addBiaForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private biaService: BusinessImpactAnalysisService // Assuming you want to save the data here
   ) {
     this.addBiaForm = this.fb.group({
       id: [null, Validators.required],
       name: ['', Validators.required],
       status: ['', Validators.required],
       dateCreated: [new Date(), Validators.required],
+      startDate: [null, Validators.required], // Add startDate control
+      endDate: [null, Validators.required] // Add endDate control
     });
   }
 
   onSubmit(): void {
     if (this.addBiaForm.valid) {
       const newApproval = this.addBiaForm.value;
-      // Save the new approval
+      this.biaService.addBiaApproval(newApproval); // Save the new approval
       this.addBiaForm.reset({ dateCreated: new Date() });
     }
   }
