@@ -10,14 +10,14 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule, NgIf],
   templateUrl: './edit-bia-approval-save.component.html',
-  styleUrl: './edit-bia-approval-save.component.scss'
+  styleUrls: ['./edit-bia-approval-save.component.scss']
 })
 export class EditBiaApprovalSaveComponent {
   editBiaForm: FormGroup;
   approvalId: number;
   approvalData?: BiaApproval;
   showCancelPopup: boolean = false;
-  alert:string ="";
+  alert: string = "";
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +28,9 @@ export class EditBiaApprovalSaveComponent {
     this.editBiaForm = this.fb.group({
       name: ['', Validators.required],
       status: ['', Validators.required],
-      reasonForCancellation: ['']
+      reasonForCancellation: [''],
+      startDate: ['', Validators.required], // Add startDate control
+      endDate: ['', Validators.required] // Add endDate control
     });
 
     this.approvalId = Number(this.route.snapshot.paramMap.get('id'));
@@ -45,7 +47,9 @@ export class EditBiaApprovalSaveComponent {
       this.editBiaForm.patchValue({
         name: approval.name,
         status: approval.status,
-        reasonForCancellation: approval.reasonForCancellation || ''
+        reasonForCancellation: approval.reasonForCancellation || '',
+        startDate: approval.startDate || '', // Load start date
+        endDate: approval.endDate || '' // Load end date
       });
     }
   }
@@ -54,7 +58,7 @@ export class EditBiaApprovalSaveComponent {
     if (this.editBiaForm.valid) {
       const updatedData = this.editBiaForm.value;
       this.biaService.editBiaApproval(this.approvalId, updatedData);
-      this.alert= 'BIA Approval Updated Successfully!';
+      this.alert = 'BIA Approval Updated Successfully!';
     }
   }
 

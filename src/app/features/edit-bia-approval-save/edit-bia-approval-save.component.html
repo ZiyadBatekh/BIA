@@ -1,6 +1,6 @@
 <div class="edit-bia-approval">
   <h2>Edit BIA Approval</h2>
-  <p class="text-center" style="color: green ;">{{alert}}</p>
+  <p class="text-center" style="color: green;">{{ alert }}</p>
 
   <form [formGroup]="editBiaForm" (ngSubmit)="onSave()">
     <!-- Approval Name -->
@@ -35,6 +35,28 @@
         class="form-control"
         placeholder="Enter Reason"
       ></textarea>
+    </div>
+
+    <!-- Start Date -->
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <input
+        type="date"
+        id="startDate"
+        formControlName="startDate"
+        class="form-control"
+      />
+    </div>
+
+    <!-- End Date -->
+    <div class="form-group">
+      <label for="endDate">End Date</label>
+      <input
+        type="date"
+        id="endDate"
+        formControlName="endDate"
+        class="form-control"
+      />
     </div>
 
     <!-- Action Buttons -->

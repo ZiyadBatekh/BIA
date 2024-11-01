@@ -1,8 +1,9 @@
 export interface BiaApproval {
-    id: number;
-    name: string;
-    status: string;
-    dateCreated: Date;
-    reasonForCancellation?: string; // Optional, only used for canceled approvals
-    // Add more fields as seen in the images if needed
-  }
+  id: number;
+  name: string;
+  status: string;
+  dateCreated: Date;
+  reasonForCancellation?: string; // Optional if not always needed
+  startDate?: string; // Optional date field
+  endDate?: string; // Optional date field
+}
