@@ -1,59 +1,58 @@
 .cancel-bia-approval {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff5f5;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #d9534f;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d9534f;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+
+    label {
+      font-weight: 600;
+      color: #555;
     }
-  
-    .form-group {
-      margin-bottom: 15px;
-  
-      label {
-        font-weight: 600;
-        color: #555;
-      }
-  
-      .form-control {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-      }
-  
-      textarea.form-control {
-        resize: vertical;
-      }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
     }
-  
-    .actions {
-      text-align: center;
-      
-      .btn {
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: 600;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-  
-        &.btn-danger {
-          background-color: #d9534f;
-          color: #fff;
-  
-          &:hover {
-            background-color: #c9302c;
-          }
+
+    textarea.form-control {
+      resize: vertical;
+    }
+  }
+
+  .actions {
+    text-align: center;
+    
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &.btn-danger {
+        background-color: #d9534f;
+        color: #fff;
+
+        &:hover {
+          background-color: #c9302c;
         }
       }
     }
   }
-  
+}

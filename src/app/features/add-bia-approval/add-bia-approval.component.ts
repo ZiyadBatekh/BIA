@@ -20,19 +20,18 @@ export class AddBiaApprovalComponent {
     this.addBiaForm = this.fb.group({
       id: [null, Validators.required],
       name: ['', Validators.required],
-      status: ['', Validators.required]
+      status: ['', Validators.required],
+      dateCreated: [new Date(), Validators.required] // Initialize with current date
     });
   }
-
-  ngOnInit(): void {}
 
   // Method to submit the form data
   onSubmit(): void {
     if (this.addBiaForm.valid) {
       const newApproval = this.addBiaForm.value;
-      this.biaService.addBiaApproval(newApproval); // Assuming we add this functionality in the service later
+      this.biaService.addBiaApproval(newApproval);
       alert('BIA Approval Added Successfully!');
-      this.addBiaForm.reset();
+      this.addBiaForm.reset({ dateCreated: new Date() });
     }
   }
 }

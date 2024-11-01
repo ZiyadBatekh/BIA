@@ -21,6 +21,8 @@ export class AddBiaApprovalCancelComponent {
   ) {
     this.cancelBiaForm = this.fb.group({
       id: [null, Validators.required],
+      dateCreated: [{ value: '', disabled: true }], // Disabled, to display existing date
+      dateCancelled: [new Date(), Validators.required], // Editable
       reason: ['', Validators.required]
     });
   }
@@ -34,10 +36,18 @@ export class AddBiaApprovalCancelComponent {
     this.approvals = this.biaService.getBiaApprovals().filter(approval => approval.status !== 'Cancelled');
   }
 
+  // Set the selected approval's dateCreated when an ID is chosen
+  onApprovalSelect(): void {
+    const selectedApproval = this.approvals.find(approval => approval.id === this.cancelBiaForm.get('id')?.value);
+    if (selectedApproval) {
+      this.cancelBiaForm.get('dateCreated')?.setValue(selectedApproval.dateCreated);
+    }
+  }
+
   // Cancel the selected approval
   onCancelApproval(): void {
     if (this.cancelBiaForm.valid) {
-      const { id, reason } = this.cancelBiaForm.value;
+      const { id, reason, dateCancelled } = this.cancelBiaForm.value;
       this.biaService.cancelBiaApproval(id, reason);
       alert('BIA Approval Cancelled Successfully!');
       this.cancelBiaForm.reset();
