@@ -1,9 +1,29 @@
 {
-    "save": "Save",
-    "cancel": "Cancel",
-    "approve": "Approve",
-    "cancelApproval": "Cancel Approval",
-    "saveChanges": "Save Changes",
-    "cancelEdit": "Cancel Edit"
+  "SIDEBAR": {
+    "DASHBOARD": "Dashboard",
+    "PLANS": "Plans",
+    "OPERATIONS": "Operations",
+    "BIA_ANALYSIS": "BIA Analysis",
+    "RISKS": "Risks",
+    "INSTITUTION_DATA": "Institution Data",
+    "USERS": "Users",
+    "REPORTS": "Reports",
+    "INSTITUTIONS": "Institutions",
+    "AWARENESS_TRAINING": "Awareness & Training",
+    "NOTIFICATIONS": "Notifications",
+    "TASK_MANAGEMENT": "Task Management",
+    "SETTINGS": "Settings"
+  },
+  "FORM": {
+    "TITLE": "Approval Form",
+    "DESCRIPTION": "Please enter approval form details",
+    "REVIEWER": "Reviewer",
+    "APPROVER": "Approver",
+    "STATUS": "Status",
+    "APPROVAL_DATE": "Approval Date",
+    "NEXT_REVIEW_DATE": "Next Review Date",
+    "SAVE_DRAFT": "Save Draft",
+    "CANCEL": "Cancel",
+    "SAVE": "Save"
   }
-  
+}

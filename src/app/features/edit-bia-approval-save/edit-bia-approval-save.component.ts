@@ -17,6 +17,7 @@ export class EditBiaApprovalSaveComponent {
   approvalId: number;
   approvalData?: BiaApproval;
   showCancelPopup: boolean = false;
+  alert:string ="";
 
   constructor(
     private fb: FormBuilder,
@@ -53,7 +54,7 @@ export class EditBiaApprovalSaveComponent {
     if (this.editBiaForm.valid) {
       const updatedData = this.editBiaForm.value;
       this.biaService.editBiaApproval(this.approvalId, updatedData);
-      alert('BIA Approval Updated Successfully!');
+      this.alert= 'BIA Approval Updated Successfully!';
     }
   }
 

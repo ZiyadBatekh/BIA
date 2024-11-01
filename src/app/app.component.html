@@ -1,5 +1,19 @@
-<nav style="display: flex; justify-content: space-between;">
-  <a routerLink="/add-bia-approval">Add BIA Approval</a>
-  <a routerLink="/edit-bia-approval-save">Edit BIA Approval Save</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar Component -->
+    <div class="col-md-3 col-lg-2" style="padding: 0;">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <!-- Navbar and Main Content Row -->
+    <div class="col-md-9 col-lg-10" style="padding: 0;">
+      <!-- Header Component -->
+      <app-layout-header></app-layout-header>
+
+      <!-- Main Content -->
+      <div class="p-4">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

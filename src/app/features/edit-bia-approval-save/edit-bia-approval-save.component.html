@@ -1,5 +1,6 @@
 <div class="edit-bia-approval">
   <h2>Edit BIA Approval</h2>
+  <p class="text-center" style="color: green ;">{{alert}}</p>
 
   <form [formGroup]="editBiaForm" (ngSubmit)="onSave()">
     <!-- Approval Name -->
@@ -38,10 +39,10 @@
 
     <!-- Action Buttons -->
     <div class="actions">
-      <button type="submit" class="btn btn-primary" [disabled]="!editBiaForm.valid">
+      <button style="margin-right: 10px;" type="submit" class="btn btn-primary" [disabled]="!editBiaForm.valid">
         Save Changes
       </button>
-      <button type="button" class="btn btn-secondary" (click)="onCancel()">
+      <button style="width: 141.5px;" type="button" class="btn btn-outline-danger" (click)="onCancel()">
         Cancel
       </button>
     </div>
@@ -51,8 +52,8 @@
   <div *ngIf="showCancelPopup" class="popup-overlay">
     <div class="popup">
       <p>Do you want to cancel?</p>
-      <button (click)="confirmCancel()" class="btn btn-danger">Confirm</button>
-      <button (click)="dismissCancel()" class="btn btn-secondary">Dismiss</button>
+      <button style="padding: 10px;" (click)="confirmCancel()" class="btn btn-danger">Confirm</button>
+      <button style="padding: 10px;" (click)="dismissCancel()" class="btn btn-secondary">Dismiss</button>
     </div>
   </div>
 </div>
