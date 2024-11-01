@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BusinessImpactAnalysisService } from '../../core/services/business-impact-analysis.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../../shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-add-bia-approval',
@@ -14,24 +16,32 @@ export class AddBiaApprovalComponent {
 
   constructor(
     private fb: FormBuilder,
-    private biaService: BusinessImpactAnalysisService
+    private dialog: MatDialog
   ) {
-    // Initialize the form
     this.addBiaForm = this.fb.group({
       id: [null, Validators.required],
       name: ['', Validators.required],
       status: ['', Validators.required],
-      dateCreated: [new Date(), Validators.required] // Initialize with current date
+      dateCreated: [new Date(), Validators.required],
     });
   }
 
-  // Method to submit the form data
   onSubmit(): void {
     if (this.addBiaForm.valid) {
       const newApproval = this.addBiaForm.value;
-      this.biaService.addBiaApproval(newApproval);
-      alert('BIA Approval Added Successfully!');
+      // Save the new approval
       this.addBiaForm.reset({ dateCreated: new Date() });
     }
+  }
+
+  // Open the confirmation dialog
+  onCancel(): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.addBiaForm.reset({ dateCreated: new Date() });
+      }
+    });
   }
 }

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BusinessImpactAnalysisService } from '../../core/services/business-impact-analysis.service';
 import { BiaApproval } from '../../core/models/bia-approval.model';
-import { NgForOf, NgIf } from '@angular/common';
+import { NgForOf} from '@angular/common';
+
 
 @Component({
   selector: 'app-add-bia-approval-cancel',

@@ -1,47 +1,58 @@
 <div class="edit-bia-approval">
-    <h2>Edit BIA Approval</h2>
-    
-    <form [formGroup]="editBiaForm" (ngSubmit)="onSave()">
-      <!-- Approval Name -->
-      <div class="form-group">
-        <label for="name">Approval Name</label>
-        <input
-          type="text"
-          id="name"
-          formControlName="name"
-          class="form-control"
-          placeholder="Enter Approval Name"
-        />
-      </div>
-  
-      <!-- Status -->
-      <div class="form-group">
-        <label for="status">Status</label>
-        <select id="status" formControlName="status" class="form-control">
-          <option value="" disabled>Select Status</option>
-          <option value="Approved">Approved</option>
-          <option value="Pending">Pending</option>
-          <option value="Cancelled">Cancelled</option>
-        </select>
-      </div>
-  
-      <!-- Reason for Cancellation -->
-      <div class="form-group" *ngIf="editBiaForm.get('status')?.value === 'Cancelled'">
-        <label for="reasonForCancellation">Reason for Cancellation</label>
-        <textarea
-          id="reasonForCancellation"
-          formControlName="reasonForCancellation"
-          class="form-control"
-          placeholder="Enter Reason"
-        ></textarea>
-      </div>
-  
-      <!-- Action Buttons -->
-      <div class="actions">
-        <button type="submit" class="btn btn-primary" [disabled]="!editBiaForm.valid">
-          Save Changes
-        </button>
-      </div>
-    </form>
+  <h2>Edit BIA Approval</h2>
+
+  <form [formGroup]="editBiaForm" (ngSubmit)="onSave()">
+    <!-- Approval Name -->
+    <div class="form-group">
+      <label for="name">Approval Name</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="form-control"
+        placeholder="Enter Approval Name"
+      />
+    </div>
+
+    <!-- Status -->
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" formControlName="status" class="form-control">
+        <option value="" disabled>Select Status</option>
+        <option value="Approved">Approved</option>
+        <option value="Pending">Pending</option>
+        <option value="Cancelled">Cancelled</option>
+      </select>
+    </div>
+
+    <!-- Reason for Cancellation -->
+    <div class="form-group" *ngIf="editBiaForm.get('status')?.value === 'Cancelled'">
+      <label for="reasonForCancellation">Reason for Cancellation</label>
+      <textarea
+        id="reasonForCancellation"
+        formControlName="reasonForCancellation"
+        class="form-control"
+        placeholder="Enter Reason"
+      ></textarea>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <button type="submit" class="btn btn-primary" [disabled]="!editBiaForm.valid">
+        Save Changes
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">
+        Cancel
+      </button>
+    </div>
+  </form>
+
+  <!-- Cancel Confirmation Popup -->
+  <div *ngIf="showCancelPopup" class="popup-overlay">
+    <div class="popup">
+      <p>Do you want to cancel?</p>
+      <button (click)="confirmCancel()" class="btn btn-danger">Confirm</button>
+      <button (click)="dismissCancel()" class="btn btn-secondary">Dismiss</button>
+    </div>
   </div>
-  
+</div>
