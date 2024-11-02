@@ -1,49 +1,72 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BusinessImpactAnalysisService } from '../../core/services/business-impact-analysis.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../../shared/confirmation-dialog/confirmation-dialog.component';
+import { BiaApproval } from '../../core/models/bia-approval.model';
 
 @Component({
   selector: 'app-add-bia-approval',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './add-bia-approval.component.html',
-  styleUrls: ['./add-bia-approval.component.scss'] // Note the change here from styleUrl to styleUrls
+  styleUrls: ['./add-bia-approval.component.scss']
 })
-export class AddBiaApprovalComponent {
+export class AddBiaApprovalComponent implements OnInit {
   addBiaForm: FormGroup;
+  authors = ['Author 1', 'Author 2', 'Author 3'];
+  reviewers = ['Reviewer 1', 'Reviewer 2', 'Reviewer 3'];
 
   constructor(
     private fb: FormBuilder,
-    private dialog: MatDialog,
-    private biaService: BusinessImpactAnalysisService // Assuming you want to save the data here
+    private biaService: BusinessImpactAnalysisService,
+    private dialog: MatDialog
   ) {
     this.addBiaForm = this.fb.group({
-      id: [null, Validators.required],
-      name: ['', Validators.required],
       status: ['', Validators.required],
-      dateCreated: [new Date(), Validators.required],
-      startDate: [null, Validators.required], // Add startDate control
-      endDate: [null, Validators.required] // Add endDate control
+      author: ['', Validators.required],
+      reviewer: ['', Validators.required],
+      agree: ['', Validators.required],
+      lastReviewDate: [null, Validators.required],
+      nextReviewDate: [null, Validators.required]
     });
+  }
+
+  ngOnInit(): void {
+    const latestApproval = this.biaService.getLatestBiaApproval();
+    if (latestApproval) {
+      this.addBiaForm.patchValue(latestApproval);
+    }
   }
 
   onSubmit(): void {
     if (this.addBiaForm.valid) {
       const newApproval = this.addBiaForm.value;
-      this.biaService.addBiaApproval(newApproval); // Save the new approval
-      this.addBiaForm.reset({ dateCreated: new Date() });
+      this.biaService.addBiaApproval(newApproval);
+      this.addBiaForm.reset();
     }
   }
 
-  // Open the confirmation dialog
+  onSaveDraft() {
+    if (this.addBiaForm.valid) {
+      const draftData = this.addBiaForm.value;
+
+      // Save the draftData to local storage or send it to a service
+      localStorage.setItem('biaApprovalDraft', JSON.stringify(draftData));
+      
+      // Optionally, show a success message or notification
+      console.log('Draft saved', draftData);
+    } else {
+      console.log('Form is not valid, cannot save draft.');
+    }
+  }
+
   onCancel(): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.addBiaForm.reset({ dateCreated: new Date() });
+        this.addBiaForm.reset();
       }
     });
   }

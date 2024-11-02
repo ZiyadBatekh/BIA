@@ -19,6 +19,10 @@ export class EditBiaApprovalSaveComponent {
   showCancelPopup: boolean = false;
   alert: string = "";
 
+  authors = ['Author 1', 'Author 2', 'Author 3'];
+  reviewers = ['Reviewer 1', 'Reviewer 2', 'Reviewer 3'];
+  agreeOptions = ['Yes', 'No'];
+
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -29,8 +33,13 @@ export class EditBiaApprovalSaveComponent {
       name: ['', Validators.required],
       status: ['', Validators.required],
       reasonForCancellation: [''],
-      startDate: ['', Validators.required], // Add startDate control
-      endDate: ['', Validators.required] // Add endDate control
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      author: ['', Validators.required], // New author field
+      reviewer: ['', Validators.required], // New reviewer field
+      agree: ['', Validators.required], // New agree field
+      lastReviewDate: ['', Validators.required], // New last review date field
+      nextReviewDate: ['', Validators.required] // New next review date field
     });
 
     this.approvalId = Number(this.route.snapshot.paramMap.get('id'));
@@ -48,8 +57,13 @@ export class EditBiaApprovalSaveComponent {
         name: approval.name,
         status: approval.status,
         reasonForCancellation: approval.reasonForCancellation || '',
-        startDate: approval.startDate || '', // Load start date
-        endDate: approval.endDate || '' // Load end date
+        startDate: approval.startDate || '',
+        endDate: approval.endDate || '',
+        author: approval.author || '', // Set author if available
+        reviewer: approval.reviewer || '', // Set reviewer if available
+        agree: approval.agree || '', // Set agree option if available
+        lastReviewDate: approval.lastReviewDate || '', // Set last review date
+        nextReviewDate: approval.nextReviewDate || '' // Set next review date
       });
     }
   }
@@ -62,18 +76,15 @@ export class EditBiaApprovalSaveComponent {
     }
   }
 
-  // Trigger the popup
   onCancel(): void {
     this.showCancelPopup = true;
   }
 
-  // Confirm the cancellation
   confirmCancel(): void {
     this.showCancelPopup = false;
-    this.router.navigate(['/bia-approvals']); // Navigate to the main page
+    this.router.navigate(['/bia-approvals']);
   }
 
-  // Dismiss the popup
   dismissCancel(): void {
     this.showCancelPopup = false;
   }

@@ -1,72 +1,70 @@
-<div class="add-bia-approval">
-  <h2>Add BIA Approval</h2>
-  
+<div class="bia-approval-form">
+  <h2>BIA Approval Form</h2>
+  <hr class="divider" />
+
   <form [formGroup]="addBiaForm" (ngSubmit)="onSubmit()">
-      <!-- Approval ID -->
-      <div class="form-group">
-          <label for="id">Approval ID</label>
-          <input
-              type="number"
-              id="id"
-              formControlName="id"
-              class="form-control"
-              placeholder="Enter Approval ID"
-          />
-      </div>
-
-      <!-- Approval Name -->
-      <div class="form-group">
-          <label for="name">Approval Name</label>
-          <input
-              type="text"
-              id="name"
-              formControlName="name"
-              class="form-control"
-              placeholder="Enter Approval Name"
-          />
-      </div>
-
+    <div class="form-row">
       <!-- Status -->
       <div class="form-group">
-          <label for="status">Status</label>
-          <select id="status" formControlName="status" class="form-control">
-              <option value="" disabled>Select Status</option>
-              <option value="Approved">Approved</option>
-              <option value="Pending">Pending</option>
-              <option value="Cancelled">Cancelled</option>
-          </select>
+        <label for="status">Status</label>
+        <select id="status" formControlName="status" class="form-control">
+          <option value="" disabled>Select Status</option>
+          <option value="Approved">Approved</option>
+          <option value="Pending">Pending</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
       </div>
 
-      <!-- Start Date -->
+      <!-- Author -->
       <div class="form-group">
-          <label for="startDate">Start Date</label>
-          <input
-              type="date"
-              id="startDate"
-              formControlName="startDate"
-              class="form-control"
-          />
+        <label for="author">Author</label>
+        <select id="author" formControlName="author" class="form-control">
+          <option value="" disabled>Select Author</option>
+          <option *ngFor="let author of authors" [value]="author">{{ author }}</option>
+        </select>
       </div>
+    </div>
 
-      <!-- End Date -->
+    <div class="form-row">
+      <!-- Reviewer -->
       <div class="form-group">
-          <label for="endDate">End Date</label>
-          <input
-              type="date"
-              id="endDate"
-              formControlName="endDate"
-              class="form-control"
-          />
+        <label for="reviewer">Reviewer</label>
+        <select id="reviewer" formControlName="reviewer" class="form-control">
+          <option value="" disabled>Select Reviewer</option>
+          <option *ngFor="let reviewer of reviewers" [value]="reviewer">{{ reviewer }}</option>
+        </select>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="actions">
-          <button type="submit" class="btn btn-primary" [disabled]="!addBiaForm.valid">
-              Save
-          </button>
-          <button type="button" class="btn btn-outline-danger" (click)="onCancel()">
-              Cancel
-          </button>
+      <!-- Agree -->
+      <div class="form-group">
+        <label for="agree">Agree</label>
+        <select id="agree" formControlName="agree" class="form-control">
+          <option value="" disabled>Select Agree Option</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
       </div>
+    </div>
+
+    <div class="form-row">
+      <!-- Last Review Date -->
+      <div class="form-group flex-grow-1 me-2">
+        <label for="lastReviewDate">Last Review Date</label>
+        <input type="date" id="lastReviewDate" formControlName="lastReviewDate" class="form-control" />
+      </div>
+
+      <!-- Next Review Date -->
+      <div class="form-group flex-grow-1">
+        <label for="nextReviewDate">Next Review Date</label>
+        <input type="date" id="nextReviewDate" formControlName="nextReviewDate" class="form-control" />
+      </div>
+    </div>
+
+    <div class="d-flex bd-highlight button-container">
+      <button style="width: 98px; height: 37.6px;" type="submit" class="btn btn-primary mt-2 me-auto bd-highlight" [disabled]="!addBiaForm.valid">Save</button>
+      <button style="width: 98px; height: 37.6px;" type="button" class="btn btn-outline-secondary m-2" (click)="onSaveDraft()">Save Draft</button>
+      <button style="width: 98px; height: 37.6px;" type="button" class="btn btn-outline-danger m-2" (click)="onCancel()">Cancel</button>
+    </div>
+    
   </form>
 </div>

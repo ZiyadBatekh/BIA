@@ -1,61 +1,67 @@
-.add-bia-approval {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 2rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  
-    h2 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 1.5rem;
-    }
-  
-    .form-group {
-      margin-bottom: 1.25rem;
-  
-      label {
-        display: block;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 0.5rem;
-      }
-  
-      .form-control {
-        width: 100%;
-        padding: 0.5rem;
-        font-size: 1rem;
-        border-radius: 4px;
-        border: 1px solid #ddd;
-      }
-    }
-  
-    .actions {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1.5rem;
-  
-      .btn {
-        padding: 0.5rem 1rem;
-        width: 150px;
-        font-size: 1rem;
-        font-weight: 500;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-  
-      .btn-primary {
-        background-color: rgb(0, 96, 152);
-        color: #fff;
-        border: none;
-      }
-  
-      .btn-secondary {
-        background-color: #6c757d;
-        color: #fff;
-        border: none;
-      }
-    }
-  }
-  
+.bia-approval-form {
+  width: 100%;
+  padding: 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; /* Arrange children in a column */
+  height: 80vh; /* Full height of the viewport */
+  box-sizing: border-box; /* Include padding in height */
+  position: relative; /* Position context for the button container */
+}
+
+.button-container {
+  position: absolute; /* Position it at the bottom of the form */
+  bottom: 1rem; /* Adjust this value as needed */
+  left: 1rem; /* Adjust for some left margin */
+  right: 1rem; /* Adjust for some right margin */
+}
+
+.btn-primary {
+  background-color: #5b008a;
+}
+
+.btn-outline-secondary {
+  border: 1px solid #5b008a;
+  color: #5b008a;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #5b008a;
+  color: white;
+}
+
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.button-container {
+  position: absolute; /* Position it at the bottom of the form */
+  bottom: 2rem; /* Adjust this value as needed */
+  left: 2rem; /* Adjust for some left margin */
+  right: 2rem; /* Adjust for some right margin */
+}
+
+.form-group {
+  flex: 1;
+}
+
+.btn-primary{
+  background-color: #5b008a;
+}
+
+.btn-outline-secondary{
+  border: 1px solid #5b008a;
+}
+
+.btn-outline-secondary:hover{
+  background-color: #5b008a;
+  color: white;
+}
+
+
+
+
