@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BusinessImpactAnalysisService } from '../../core/services/business-impact-analysis.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationDialogComponent } from '../../shared/confirmation-dialog/confirmation-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NgForOf } from '@angular/common';
 import Swal from 'sweetalert2';
@@ -90,10 +89,12 @@ export class AddBiaApprovalComponent implements OnInit {
       Swal.fire({
         title: 'Are you sure?',
         text: 'You have unsaved changes. Do you want to cancel?',
-        icon: 'warning',
+        icon: 'error',
         showCancelButton: true,
-        confirmButtonText: 'Yes, cancel it!',
-        cancelButtonText: 'No, keep editing'
+        confirmButtonColor: "#5b008a",
+        cancelButtonColor: "#d33",
+        confirmButtonText: 'Confirm',
+        cancelButtonText: 'Cancel'
       }).then((result) => {
         if (result.isConfirmed) {
           // If confirmed, reset the form
