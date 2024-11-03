@@ -4,16 +4,9 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column; /* Arrange children in a column */
-  height: 80vh; /* Full height of the viewport */
   box-sizing: border-box; /* Include padding in height */
   position: relative; /* Position context for the button container */
-}
-
-.button-container {
-  position: absolute; /* Position it at the bottom of the form */
-  bottom: 1rem; /* Adjust this value as needed */
-  left: 1rem; /* Adjust for some left margin */
-  right: 1rem; /* Adjust for some right margin */
+  background-color: white;
 }
 
 .btn-primary {
@@ -30,7 +23,6 @@
   color: white;
 }
 
-
 .form-row {
   display: flex;
   justify-content: space-between;
@@ -38,30 +30,19 @@
   margin-bottom: 1.5rem;
 }
 
-.button-container {
-  position: absolute; /* Position it at the bottom of the form */
-  bottom: 2rem; /* Adjust this value as needed */
-  left: 2rem; /* Adjust for some left margin */
-  right: 2rem; /* Adjust for some right margin */
-}
-
 .form-group {
   flex: 1;
 }
 
-.btn-primary{
+.btn-primary {
   background-color: #5b008a;
 }
 
-.btn-outline-secondary{
+.btn-outline-secondary {
   border: 1px solid #5b008a;
 }
 
-.btn-outline-secondary:hover{
+.btn-outline-secondary:hover {
   background-color: #5b008a;
   color: white;
 }
-
-
-
-

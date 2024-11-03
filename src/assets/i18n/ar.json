@@ -1,30 +1,37 @@
 {
-  "addBiaApproval": {
-    "title": "إضافة موافقة BIA",
-    "approvalId": "رقم الموافقة",
-    "enterApprovalId": "أدخل رقم الموافقة",
-    "approvalName": "اسم الموافقة",
-    "enterApprovalName": "أدخل اسم الموافقة",
-    "status": "الحالة",
-    "selectStatus": "اختر الحالة",
-    "approved": "موافق عليه",
-    "pending": "معلق",
-    "cancelled": "ملغى",
-    "startDate": "تاريخ البدء",
-    "endDate": "تاريخ الانتهاء",
-    "save": "حفظ",
-    "cancel": "إلغاء",
-    "confirmation": {
-      "title": "تأكيد الإلغاء",
-      "message": "هل أنت متأكد أنك تريد الإلغاء؟",
-      "yes": "نعم",
-      "no": "لا"
-    }
+  "header": {
+    "title": "نموذج موافقة BIA",
+    "search_placeholder": "ابحث هنا...",
+    "username": "اسم المستخدم",
+    "new_project": "مشروع جديد...",
+    "settings": "الإعدادات",
+    "profile": "الملف الشخصي",
+    "sign_out": "تسجيل الخروج"
   },
-  "editBiaApproval": {
-    "title": "تعديل موافقة BIA",
-    "biaUpdated": "تم تحديث موافقة BIA بنجاح!",
-    "confirmCancel": "هل أنت متأكد أنك تريد الإلغاء؟",
+  "sidebar": {
+    "home": "الرئيسية",
+    "plans": "خطط",
+    "operations": "العمليات",
+    "bia_analysis": "تحليل BIA",
+    "risks": "المخاطر",
+    "institution_data": "بيانات المؤسسة",
+    "users": "المستخدمون",
+    "reports": "التقارير",
+    "institutions": "المؤسسات"
+  },
+  "form": {
+    "status": "الحالة",
+    "author": "المؤلف",
+    "reviewer": "المراجع",
+    "agree": "موافق",
+    "last_review_date": "تاريخ المراجعة الأخيرة",
+    "next_review_date": "تاريخ المراجعة القادمة",
+    "select_status": "اختر الحالة",
+    "select_author": "اختر المؤلف",
+    "select_reviewer": "اختر المراجع",
+    "select_agree_option": "اختر خيار الموافقة",
+    "save": "حفظ",
+    "save_draft": "حفظ كمسودة",
     "cancel": "إلغاء"
   }
 }

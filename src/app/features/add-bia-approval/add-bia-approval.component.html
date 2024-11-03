@@ -1,12 +1,20 @@
+<div class="d-flex justify-content-center">
+  <img src="assets/media/app/add BIA approval Details English.jpg" style="width: 60%; align-items: center;">
+</div>
+
 <div class="bia-approval-form">
-  <h2>BIA Approval Form</h2>
+  <div class="d-flex align-items-center">
+    <mat-icon class="sidebar-icon" style="margin-right: 3px;" fontIcon="assignment"></mat-icon>
+    <h5 class="m-0">BIA Approval Form</h5>
+  </div>
   <hr class="divider" />
 
-  <form [formGroup]="addBiaForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="addBiaForm" (ngSubmit)="onSave()">
+    <p class="text-center" style="color: green;">{{alertMessage}}</p>
     <div class="form-row">
       <!-- Status -->
       <div class="form-group">
-        <label for="status">Status</label>
+        <label style="margin-bottom: 3px;" for="status">Status</label>
         <select id="status" formControlName="status" class="form-control">
           <option value="" disabled>Select Status</option>
           <option value="Approved">Approved</option>
@@ -17,7 +25,7 @@
 
       <!-- Author -->
       <div class="form-group">
-        <label for="author">Author</label>
+        <label style="margin-bottom: 3px;" for="author">Author</label>
         <select id="author" formControlName="author" class="form-control">
           <option value="" disabled>Select Author</option>
           <option *ngFor="let author of authors" [value]="author">{{ author }}</option>
@@ -28,7 +36,7 @@
     <div class="form-row">
       <!-- Reviewer -->
       <div class="form-group">
-        <label for="reviewer">Reviewer</label>
+        <label for="reviewer" style="margin-bottom: 3px;">Reviewer</label>
         <select id="reviewer" formControlName="reviewer" class="form-control">
           <option value="" disabled>Select Reviewer</option>
           <option *ngFor="let reviewer of reviewers" [value]="reviewer">{{ reviewer }}</option>
@@ -37,7 +45,7 @@
 
       <!-- Agree -->
       <div class="form-group">
-        <label for="agree">Agree</label>
+        <label for="agree" style="margin-bottom: 3px;">Agree</label>
         <select id="agree" formControlName="agree" class="form-control">
           <option value="" disabled>Select Agree Option</option>
           <option value="Yes">Yes</option>
@@ -49,18 +57,18 @@
     <div class="form-row">
       <!-- Last Review Date -->
       <div class="form-group flex-grow-1 me-2">
-        <label for="lastReviewDate">Last Review Date</label>
+        <label for="lastReviewDate" style="margin-bottom: 3px;">Last Review Date</label>
         <input type="date" id="lastReviewDate" formControlName="lastReviewDate" class="form-control" />
       </div>
 
       <!-- Next Review Date -->
       <div class="form-group flex-grow-1">
-        <label for="nextReviewDate">Next Review Date</label>
+        <label style="margin-bottom: 3px;" for="nextReviewDate">Next Review Date</label>
         <input type="date" id="nextReviewDate" formControlName="nextReviewDate" class="form-control" />
       </div>
     </div>
 
-    <div class="d-flex bd-highlight button-container">
+    <div class="buttons d-flex bd-highlight button-container mt-5">
       <button style="width: 98px; height: 37.6px;" type="submit" class="btn btn-primary mt-2 me-auto bd-highlight" [disabled]="!addBiaForm.valid">Save</button>
       <button style="width: 98px; height: 37.6px;" type="button" class="btn btn-outline-secondary m-2" (click)="onSaveDraft()">Save Draft</button>
       <button style="width: 98px; height: 37.6px;" type="button" class="btn btn-outline-danger m-2" (click)="onCancel()">Cancel</button>

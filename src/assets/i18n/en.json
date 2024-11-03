@@ -1,50 +1,37 @@
 {
-  "SIDEBAR": {
-    "DASHBOARD": "Dashboard",
-    "PLANS": "Plans",
-    "OPERATIONS": "Operations",
-    "BIA_ANALYSIS": "BIA Analysis",
-    "RISKS": "Risks",
-    "INSTITUTION_DATA": "Institution Data",
-    "USERS": "Users",
-    "REPORTS": "Reports",
-    "INSTITUTIONS": "Institutions",
-    "AWARENESS_TRAINING": "Awareness & Training",
-    "NOTIFICATIONS": "Notifications",
-    "TASK_MANAGEMENT": "Task Management",
-    "SETTINGS": "Settings"
+  "header": {
+    "title": "BIA Approval Form",
+    "search_placeholder": "Search here...",
+    "username": "Username"
   },
-  "FORM": {
-    
-      "addBiaApproval": {
-        "title": "Add BIA Approval",
-        "approvalId": "Approval ID",
-        "enterApprovalId": "Enter Approval ID",
-        "approvalName": "Approval Name",
-        "enterApprovalName": "Enter Approval Name",
-        "status": "Status",
-        "selectStatus": "Select Status",
-        "approved": "Approved",
-        "pending": "Pending",
-        "cancelled": "Cancelled",
-        "startDate": "Start Date",
-        "endDate": "End Date",
-        "save": "Save",
-        "cancel": "Cancel",
-        "confirmation": {
-          "title": "Confirm Cancel",
-          "message": "Are you sure you want to cancel?",
-          "yes": "Yes",
-          "no": "No"
-        }
-      },
-      "editBiaApproval": {
-        "title": "Edit BIA Approval",
-        "biaUpdated": "BIA Approval Updated Successfully!",
-        "confirmCancel": "Are you sure you want to cancel?",
-        "cancel": "Cancel"
-      }
-    }
-    
+  "sidebar": {
+    "home": "Home",
+    "plans": "Plans",
+    "operations": "Operations",
+    "bia_analysis": "BIA Analysis",
+    "risks": "Risks",
+    "institution_data": "Institution Data",
+    "users": "Users",
+    "reports": "Reports",
+    "institutions": "Institutions",
+    "awareness_training": "Awareness & Training",
+    "notifications": "Notifications",
+    "task_management": "Task Management",
+    "settings": "Settings"
+  },
+  "form": {
+    "status": "Status",
+    "author": "Author",
+    "reviewer": "Reviewer",
+    "agree": "Agree",
+    "last_review_date": "Last Review Date",
+    "next_review_date": "Next Review Date",
+    "select_status": "Select Status",
+    "select_author": "Select Author",
+    "select_reviewer": "Select Reviewer",
+    "select_agree_option": "Select Agree Option",
+    "save": "Save",
+    "save_draft": "Save Draft",
+    "cancel": "Cancel"
   }
-
+}
