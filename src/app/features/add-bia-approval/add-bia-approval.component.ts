@@ -6,12 +6,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { NgForOf } from '@angular/common';
 import Swal from 'sweetalert2';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 
 
 @Component({
   selector: 'app-add-bia-approval',
   standalone: true,
-  imports: [ReactiveFormsModule, MatIconModule, NgForOf],
+  imports: [ReactiveFormsModule, MatIconModule, NgForOf,  TranslocoModule],
   templateUrl: './add-bia-approval.component.html',
   styleUrls: ['./add-bia-approval.component.scss']
 })
@@ -24,8 +25,8 @@ export class AddBiaApprovalComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private biaService: BusinessImpactAnalysisService,
-    private dialog: MatDialog,
-    private router:Router
+    private router: Router,
+    private translocoService: TranslocoService // Inject the service
   ) {
     // Initialize form group with required fields and validation
     this.addBiaForm = this.fb.group({
@@ -51,6 +52,11 @@ export class AddBiaApprovalComponent implements OnInit {
         this.addBiaForm.patchValue(latestApproval);
       }
     }
+  }
+
+   // Language switch method
+   switchLanguage(lang: string): void {
+    this.translocoService.setActiveLang(lang);
   }
 
   onSave(): void {
