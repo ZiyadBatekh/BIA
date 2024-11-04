@@ -4,108 +4,12 @@
   </a>
   <hr>
   <ul class="nav flex-column">
-    <li class="nav-item mb-2">
-      <a routerLink="/" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'home'" 
-         (click)="setActiveLink('home')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="home"></mat-icon>
-        Home
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/plans" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'plans'" 
-         (click)="setActiveLink('plans')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="assessment"></mat-icon>
-        Plans
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/operations" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'operations'" 
-         (click)="setActiveLink('operations')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="credit_card"></mat-icon>
-        Operations
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/bia-analysis" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'bia'" 
-         (click)="setActiveLink('bia')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="grid_on"></mat-icon>
-        BIA Analysis
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/risks" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'risks'" 
-         (click)="setActiveLink('risks')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="warning"></mat-icon>
-        Risks
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/institution-data" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'institutionData'" 
-         (click)="setActiveLink('institutionData')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="business"></mat-icon>
-        Institution Data
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/users" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'users'" 
-         (click)="setActiveLink('users')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="group"></mat-icon>
-        Users
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/reports" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'reports'" 
-         (click)="setActiveLink('reports')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="bar_chart"></mat-icon>
-        Reports
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/institution" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'institutions'" 
-         (click)="setActiveLink('institutions')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="domain"></mat-icon>
-        Institutions
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/awarness-training" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'awareness'" 
-         (click)="setActiveLink('awareness')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="school"></mat-icon>
-        Awareness & Training
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/notifications" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'notifications'" 
-         (click)="setActiveLink('notifications')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="notifications"></mat-icon>
-        Notifications
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/task-management" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'taskManagement'" 
-         (click)="setActiveLink('taskManagement')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="task"></mat-icon>
-        Task Management
-      </a>
-    </li>
-    <li class="nav-item mb-2">
-      <a routerLink="/settings" class="nav-link d-flex align-items-center text-dark" 
-         [class.active]="activeLink === 'settings'" 
-         (click)="setActiveLink('settings')">
-        <mat-icon class="sidebar-icon" style="margin-right: 5px;" fontIcon="settings"></mat-icon>
-        Settings
+    <li class="nav-item mb-2" *ngFor="let item of menuItems">
+      <a [routerLink]="item.link" class="nav-link d-flex align-items-center text-dark"
+         [class.active]="activeLink === item.key"
+         (click)="setActiveLink(item.key)">
+        <mat-icon class="sidebar-icon" style="margin-right: 5px;" [fontIcon]="item.icon"></mat-icon>
+        {{ 'sidebar.' + item.key | transloco }}
       </a>
     </li>
   </ul>
