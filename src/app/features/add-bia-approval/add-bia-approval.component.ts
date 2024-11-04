@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgClass, NgForOf, NgIf } from '@angular/common';
 import Swal from 'sweetalert2';
 import { TranslocoService } from '@jsverse/transloco';
+import { log } from 'console';
 
 @Component({
   selector: 'app-add-bia-approval',
@@ -20,7 +21,7 @@ export class AddBiaApprovalComponent implements OnInit {
   authors = ['Author 1', 'Author 2', 'Author 3'];
   reviewers = ['Reviewer 1', 'Reviewer 2', 'Reviewer 3'];
   alertMessage: string = '';
-  currentLang: string;
+  currentLang: string= 'en';
 
   constructor(
     private fb: FormBuilder,
@@ -36,9 +37,9 @@ export class AddBiaApprovalComponent implements OnInit {
       status: ['', Validators.required],
       author: ['', Validators.required],
       reviewer: ['', Validators.required],
-      agree: ['', Validators.required],
-      lastReviewDate: [null, Validators.required],
-      nextReviewDate: [null, Validators.required]
+      agree: ['', Validators.required], // Ensure this is present
+      lastReviewDate: ['', Validators.required],
+      nextReviewDate: ['', Validators.required],
     });
   }
 
@@ -56,8 +57,14 @@ export class AddBiaApprovalComponent implements OnInit {
   }
 
   switchLanguage() {
-    this.currentLang = this.currentLang === 'en' ? 'ar' : 'en';
+    this.currentLang =(this.currentLang === 'en' ? 'ar' : 'en');
     this.translocoService.setActiveLang(this.currentLang);
+    console.log(this.currentLang);
+    
+  }
+
+  currentLanguage(){
+    return this.translocoService.getActiveLang();
   }
 
   getTranslation(key: string): string {
@@ -70,11 +77,11 @@ export class AddBiaApprovalComponent implements OnInit {
       this.biaService.saveBiaApproval(newApproval);
       localStorage.removeItem('biaApprovalDraft');
       
-      Swal.fire({
-        title: this.getTranslation('success.title'), // Use translation for success title
-        text: this.getTranslation('success.message'), // Use translation for success message
-        icon: 'success',
-        confirmButtonText: this.getTranslation('button.ok') // Use translation for button text
+        Swal.fire({
+          title: 'Success!',
+          text: 'Saved Successfully',
+          icon: 'success',
+          confirmButtonText: 'OK'
       });
     }
   }
@@ -90,14 +97,14 @@ export class AddBiaApprovalComponent implements OnInit {
     const draftData = localStorage.getItem('biaApprovalDraft');
     if (draftData) {
       Swal.fire({
-        title: this.getTranslation('confirm.title'), // Use translation for confirmation title
-        text: this.getTranslation('confirm.message'), // Use translation for confirmation message
+        title: 'Are you sure?',
+        text: 'You have unsaved changes. Do you want to cancel?',
         icon: 'error',
         showCancelButton: true,
         confirmButtonColor: "#5b008a",
         cancelButtonColor: "#d33",
-        confirmButtonText: this.getTranslation('button.confirm'), // Use translation for confirm button
-        cancelButtonText: this.getTranslation('button.cancel') // Use translation for cancel button
+        confirmButtonText: 'Confirm',
+        cancelButtonText: 'Cancel'
       }).then((result) => {
         if (result.isConfirmed) {
           this.addBiaForm.reset();

@@ -1,6 +1,7 @@
 <div [class.ar]="currentLang === 'ar'" [class.en]="currentLang === 'en'">
   <div class="d-flex justify-content-center">
-    <img src="assets/media/app/add BIA approval Details English.jpg" style="width: 60%; align-items: center;">
+    <img *ngIf="currentLanguage() ==='en' " src="assets/media/app/add BIA approval Details English.jpg" style="width: 60%; align-items: center;">
+    <img *ngIf="currentLanguage() ==='ar' " src="assets/media/app/add BIA approval Details Arabic.png" style="width: 60%; align-items: center;">
   </div>
 
   <div class="bia-approval-form">
@@ -17,10 +18,10 @@
         <div class="form-group">
           <label for="status">{{ getTranslation('form.status') }}</label>
           <select id="status" formControlName="status" class="form-control">
-            <option value="" disabled>{{ getTranslation('form.select_status') }}</option>
-            <option value="Approved">{{ getTranslation('form.status_approved') }}</option>
-            <option value="Pending">{{ getTranslation('form.status_pending') }}</option>
-            <option value="Cancelled">{{ getTranslation('form.status_cancelled') }}</option>
+            <option value="" disabled>{{ getTranslation('select status') }}</option>
+            <option value="Approved">{{ getTranslation('approved') }}</option>
+            <option value="Pending">{{ getTranslation('pending') }}</option>
+            <option value="Cancelled">{{ getTranslation('cancelled') }}</option>
           </select>
         </div>
 
@@ -46,8 +47,8 @@
           <label for="agree">{{ getTranslation('form.agree') }}</label>
           <select id="agree" formControlName="agree" class="form-control">
             <option value="" disabled>{{ getTranslation('form.select_agree_option') }}</option>
-            <option value="Yes">{{ getTranslation('form.agree_yes') }}</option>
-            <option value="No">{{ getTranslation('form.agree_no') }}</option>
+            <option value="Yes">{{ getTranslation('yes') }}</option>
+            <option value="No">{{ getTranslation('no') }}</option>
           </select>
         </div>
       </div>

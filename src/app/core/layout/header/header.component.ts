@@ -31,9 +31,11 @@ export class HeaderComponent {
   }
 
   switchLanguage() {
-    this.currentLang = this.currentLang === 'en' ? 'ar' : 'en';
-    this.translocoService.setActiveLang(this.currentLang);
+    this.currentLang =(this.currentLang === 'en' ? 'ar' : 'en');
+    this.translocoService.setActiveLang(this.currentLang);    
+    console.log(this.currentLang);
     this.updateDirection();
+    
   }
 
   updateDirection() {
