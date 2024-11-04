@@ -1,78 +1,80 @@
-<div data-aos="fade-right" data-aos-duration="4000" class="d-flex justify-content-center">
-  <img src="assets/media/app/add BIA approval Details English.jpg" style="width: 60%; align-items: center;">
-</div>
-
-<div data-aos="fade-right" data-aos-duration="4000" class="bia-approval-form">
-  <div class="d-flex align-items-center">
-    <mat-icon class="sidebar-icon" style="margin-right: 3px;" fontIcon="assignment"></mat-icon>
-    <h5 data-aos="fade-right" data-aos-duration="4000" class="m-0">{{ getTranslation('form.title') }}</h5>
+<div [class.ar]="currentLang === 'ar'" [class.en]="currentLang === 'en'">
+  <div class="d-flex justify-content-center">
+    <img src="assets/media/app/add BIA approval Details English.jpg" style="width: 60%; align-items: center;">
   </div>
-  <hr class="divider" />
 
-  <form data-aos="fade-right" data-aos-duration="4000" [formGroup]="addBiaForm" (ngSubmit)="onSave()">
-    <p class="text-center" style="color: green;">{{ alertMessage }}</p>
-    
-    <div class="form-row">
-      <!-- Status -->
-      <div class="form-group">
-        <label style="margin-bottom: 3px;" for="status">{{ getTranslation('form.status') }}</label>
-        <select id="status" formControlName="status" class="form-control">
-          <option value="" disabled>{{ getTranslation('form.select_status') }}</option>
-          <option value="Approved">{{ getTranslation('form.status_approved') }}</option>
-          <option value="Pending">{{ getTranslation('form.status_pending') }}</option>
-          <option value="Cancelled">{{ getTranslation('form.status_cancelled') }}</option>
-        </select>
-      </div>
-
-      <!-- Author -->
-      <div class="form-group">
-        <label style="margin-bottom: 3px;" for="author">{{ getTranslation('form.author') }}</label>
-        <select id="author" formControlName="author" class="form-control">
-          <option value="" disabled>{{ getTranslation('form.select_author') }}</option>
-          <option *ngFor="let author of authors" [value]="author">{{ author }}</option>
-        </select>
-      </div>
+  <div class="bia-approval-form">
+    <div class="d-flex align-items-center">
+      <mat-icon class="sidebar-icon" style="margin-right: 3px;" fontIcon="assignment"></mat-icon>
+      <h5>{{ getTranslation('form.title') }}</h5>
     </div>
+    <hr class="divider" />
 
-    <div class="form-row">
-      <!-- Reviewer -->
-      <div class="form-group">
-        <label for="reviewer" style="margin-bottom: 3px;">{{ getTranslation('form.reviewer') }}</label>
-        <select id="reviewer" formControlName="reviewer" class="form-control">
-          <option value="" disabled>{{ getTranslation('form.select_reviewer') }}</option>
-          <option *ngFor="let reviewer of reviewers" [value]="reviewer">{{ reviewer }}</option>
-        </select>
+    <form [formGroup]="addBiaForm" (ngSubmit)="onSave()">
+      <p class="text-center" style="color: green;">{{ alertMessage }}</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="status">{{ getTranslation('form.status') }}</label>
+          <select id="status" formControlName="status" class="form-control">
+            <option value="" disabled>{{ getTranslation('form.select_status') }}</option>
+            <option value="Approved">{{ getTranslation('form.status_approved') }}</option>
+            <option value="Pending">{{ getTranslation('form.status_pending') }}</option>
+            <option value="Cancelled">{{ getTranslation('form.status_cancelled') }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="author">{{ getTranslation('form.author') }}</label>
+          <select id="author" formControlName="author" class="form-control">
+            <option value="" disabled>{{ getTranslation('form.select_author') }}</option>
+            <option *ngFor="let author of authors" [value]="author">{{ author }}</option>
+          </select>
+        </div>
       </div>
 
-      <!-- Agree -->
-      <div class="form-group">
-        <label for="agree" style="margin-bottom: 3px;">{{ getTranslation('form.agree') }}</label>
-        <select id="agree" formControlName="agree" class="form-control">
-          <option value="" disabled>{{ getTranslation('form.select_agree_option') }}</option>
-          <option value="Yes">{{ getTranslation('form.agree_yes') }}</option>
-          <option value="No">{{ getTranslation('form.agree_no') }}</option>
-        </select>
-      </div>
-    </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="reviewer">{{ getTranslation('form.reviewer') }}</label>
+          <select id="reviewer" formControlName="reviewer" class="form-control">
+            <option value="" disabled>{{ getTranslation('form.select_reviewer') }}</option>
+            <option *ngFor="let reviewer of reviewers" [value]="reviewer">{{ reviewer }}</option>
+          </select>
+        </div>
 
-    <div class="form-row">
-      <!-- Last Review Date -->
-      <div class="form-group flex-grow-1 me-2">
-        <label for="lastReviewDate" style="margin-bottom: 3px;">{{ getTranslation('form.last_review_date') }}</label>
-        <input type="date" id="lastReviewDate" formControlName="lastReviewDate" class="form-control" />
+        <div class="form-group">
+          <label for="agree">{{ getTranslation('form.agree') }}</label>
+          <select id="agree" formControlName="agree" class="form-control">
+            <option value="" disabled>{{ getTranslation('form.select_agree_option') }}</option>
+            <option value="Yes">{{ getTranslation('form.agree_yes') }}</option>
+            <option value="No">{{ getTranslation('form.agree_no') }}</option>
+          </select>
+        </div>
       </div>
 
-      <!-- Next Review Date -->
-      <div class="form-group flex-grow-1">
-        <label style="margin-bottom: 3px;" for="nextReviewDate">{{ getTranslation('form.next_review_date') }}</label>
-        <input type="date" id="nextReviewDate" formControlName="nextReviewDate" class="form-control" />
-      </div>
-    </div>
+      <div class="form-row">
+        <div class="form-group flex-grow-1 me-2">
+          <label for="lastReviewDate">{{ getTranslation('form.last_review_date') }}</label>
+          <input type="date" id="lastReviewDate" formControlName="lastReviewDate" class="form-control" />
+        </div>
 
-    <div class="buttons d-flex bd-highlight button-container mt-5">
-      <button style="width: 98px; height: 37.6px;" type="submit" class="btn btn-primary mt-2 me-auto bd-highlight" [disabled]="!addBiaForm.valid">{{ getTranslation('form.save') }}</button>
-      <button style="width: 98px; height: 37.6px;" type="button" class="btn btn-outline-secondary m-2" (click)="onSaveDraft()">{{ getTranslation('form.draft') }}</button>
-      <button style="width: 98px; height: 37.6px;" type="button" class="btn btn-outline-danger m-2" (click)="onCancel()">{{ getTranslation('form.cancel') }}</button>
-    </div>
-  </form>
+        <div class="form-group flex-grow-1">
+          <label for="nextReviewDate">{{ getTranslation('form.next_review_date') }}</label>
+          <input type="date" id="nextReviewDate" formControlName="nextReviewDate" class="form-control" />
+        </div>
+      </div>
+
+      <div class="buttons d-flex bd-highlight button-container mt-5" [ngClass]="{'flex-row-reverse': currentLang === 'ar', 'flex-row': currentLang === 'en'}">
+        <button type="submit" class="btn btn-primary mt-2 me-auto bd-highlight" [disabled]="!addBiaForm.valid">{{ getTranslation('form.save') }}</button>
+        <div *ngIf="currentLang === 'en'" class="ms-auto"> <!-- Left for English -->
+          <button type="button" class="btn btn-outline-secondary m-2" (click)="onSaveDraft()">{{ getTranslation('form.draft') }}</button>
+          <button type="button" class="btn btn-outline-danger m-2" (click)="onCancel()">{{ getTranslation('form.cancel') }}</button>
+        </div>
+        <div *ngIf="currentLang === 'ar'" class="me-auto"> <!-- Right for Arabic -->
+          <button type="button" class="btn btn-outline-secondary m-2" (click)="onSaveDraft()">{{ getTranslation('form.draft') }}</button>
+          <button type="button" class="btn btn-outline-danger m-2" (click)="onCancel()">{{ getTranslation('form.cancel') }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

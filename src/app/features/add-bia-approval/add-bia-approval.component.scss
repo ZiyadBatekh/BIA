@@ -46,3 +46,25 @@
   background-color: #5b008a;
   color: white;
 }
+
+.button-container {
+  display: flex;
+  justify-content: space-between; // Distribute space between buttons
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse; // Reverse the order for RTL
+}
+
+.flex-row {
+  flex-direction: row; // Normal order for LTR
+}
+
+me-auto {
+  margin-left: auto; // Align to the left for LTR
+}
+
+.ms-auto {
+  margin-right: auto; // Align to the right for RTL
+}
+

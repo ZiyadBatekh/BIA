@@ -1,35 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 70px;">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto">
-      <li class="nav-item active">
-        <!-- Add any relevant navigation items here -->
-      </li>
+      <!-- Add any relevant navigation items here -->
     </ul>
 
-    <!-- Left-aligned Search Input -->
-    <form class="form-inline my-2 my-lg-0" style="flex-grow: 1; max-width: 400px;">
-      <input class="form-control me-2" type="search" placeholder="{{ getTranslation('header.search_placeholder') }}" aria-label="Search">
-    </form>
-
-    <!-- Center-aligned Language Switch Button -->
-    <div class="d-flex justify-content-center flex-grow-1">
+    <div class="d-flex flex-grow-1 justify-content-center"> <!-- Center the button here -->
       <button (click)="switchLanguage()" class="btn btn-outline-primary">
         <mat-icon>{{ currentLang === 'en' ? 'translate' : 'translate' }}</mat-icon>
-        {{ getTranslation(currentLang === 'en' ? 'ar' : 'en') }}
+        {{ currentLang === 'en' ? 'Arabic' : 'English' }}
       </button>
     </div>
 
-    <!-- Right-aligned User Dropdown -->
-    <div class="dropdown ms-auto">
-      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+    <div class="dropdown ms-auto"> <!-- Username dropdown will be at the end -->
+      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle">
         <img src="https://github.com/mdo.png" alt="profile" width="32" height="32" class="rounded-circle me-2">
         <strong>{{ getTranslation('header.username') }}</strong>
       </a>
-      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+      <ul class="dropdown-menu text-small shadow">
         <li><a class="dropdown-item" href="#">{{ getTranslation('header.new_project') }}</a></li>
         <li><a class="dropdown-item" href="#">{{ getTranslation('header.settings') }}</a></li>
         <li><a class="dropdown-item" href="#">{{ getTranslation('header.profile') }}</a></li>

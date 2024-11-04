@@ -4,14 +4,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { BusinessImpactAnalysisService } from '../../core/services/business-impact-analysis.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { NgForOf } from '@angular/common';
+import { NgClass, NgForOf, NgIf } from '@angular/common';
 import Swal from 'sweetalert2';
 import { TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-add-bia-approval',
   standalone: true,
-  imports: [ReactiveFormsModule, MatIconModule, NgForOf],
+  imports: [ReactiveFormsModule, MatIconModule, NgForOf, NgIf, NgClass],
   templateUrl: './add-bia-approval.component.html',
   styleUrls: ['./add-bia-approval.component.scss']
 })
