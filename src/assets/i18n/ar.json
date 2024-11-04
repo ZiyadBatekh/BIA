@@ -2,11 +2,7 @@
   "header": {
     "title": "نموذج موافقة BIA",
     "search_placeholder": "ابحث هنا...",
-    "username": "اسم المستخدم",
-    "new_project": "مشروع جديد...",
-    "settings": "الإعدادات",
-    "profile": "الملف الشخصي",
-    "sign_out": "تسجيل الخروج"
+    "username": "اسم المستخدم"
   },
   "sidebar": {
     "home": "الرئيسية",
@@ -17,7 +13,11 @@
     "institution_data": "بيانات المؤسسة",
     "users": "المستخدمون",
     "reports": "التقارير",
-    "institutions": "المؤسسات"
+    "institutions": "المؤسسات",
+    "awareness_training": "التوعية والتدريب",
+    "notifications": "الإشعارات",
+    "task_management": "إدارة المهام",
+    "settings": "الإعدادات"
   },
   "form": {
     "status": "الحالة",
