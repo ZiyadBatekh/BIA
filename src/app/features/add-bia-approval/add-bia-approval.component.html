@@ -1,10 +1,10 @@
-<div [class.ar]="currentLang === 'ar'" [class.en]="currentLang === 'en'">
+<div data-aos="fade-right" data-aos-duration="4000" [class.ar]="currentLang === 'ar'" [class.en]="currentLang === 'en'">
   <div class="d-flex justify-content-center">
     <img *ngIf="currentLanguage() ==='en' " src="assets/media/app/add BIA approval Details English.jpg" style="width: 60%; align-items: center;">
     <img *ngIf="currentLanguage() ==='ar' " src="assets/media/app/add BIA approval Details Arabic.png" style="width: 60%; align-items: center;">
   </div>
 
-  <div class="bia-approval-form">
+  <div data-aos="fade-right" data-aos-duration="4000" class="bia-approval-form">
     <div class="d-flex align-items-center">
       <mat-icon class="sidebar-icon" style="margin-right: 3px;" fontIcon="assignment"></mat-icon>
       <h5>{{ getTranslation('form.title') }}</h5>
@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <div class="form-row">
+      <div data-aos="fade-right" data-aos-duration="4000" class="form-row">
         <div class="form-group">
           <label for="reviewer">{{ getTranslation('form.reviewer') }}</label>
           <select id="reviewer" formControlName="reviewer" class="form-control">
@@ -65,7 +65,7 @@
         </div>
       </div>
 
-      <div class="buttons d-flex bd-highlight button-container mt-5" [ngClass]="{'flex-row-reverse': currentLang === 'ar', 'flex-row': currentLang === 'en'}">
+      <div data-aos="fade-right" data-aos-duration="4000" class="buttons d-flex bd-highlight button-container mt-5" [ngClass]="{'flex-row-reverse': currentLang === 'ar', 'flex-row': currentLang === 'en'}">
         <button type="submit" class="btn btn-primary mt-2 me-auto bd-highlight" [disabled]="!addBiaForm.valid">{{ getTranslation('form.save') }}</button>
         <div *ngIf="currentLang === 'en'" class="ms-auto"> <!-- Left for English -->
           <button type="button" class="btn btn-outline-secondary m-2" (click)="onSaveDraft()">{{ getTranslation('form.draft') }}</button>
