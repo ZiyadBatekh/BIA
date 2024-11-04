@@ -20,6 +20,7 @@
     "settings": "الإعدادات"
   },
   "form": {
+    "title":"استمارة الموافقة",
     "status": "الحالة",
     "author": "المؤلف",
     "reviewer": "المراجع",
@@ -31,7 +32,7 @@
     "select_reviewer": "اختر المراجع",
     "select_agree_option": "اختر خيار الموافقة",
     "save": "حفظ",
-    "save_draft": "حفظ كمسودة",
+    "draft": "مسودة",
     "cancel": "إلغاء"
   }
 }

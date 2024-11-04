@@ -20,6 +20,7 @@
     "settings": "Settings"
   },
   "form": {
+    "title":"Approval Form",
     "status": "Status",
     "author": "Author",
     "reviewer": "Reviewer",
@@ -31,7 +32,22 @@
     "select_reviewer": "Select Reviewer",
     "select_agree_option": "Select Agree Option",
     "save": "Save",
-    "save_draft": "Save Draft",
+    "draft": "Save Draft",
     "cancel": "Cancel"
+  },
+  
+    "success": {
+      "title": "Success!",
+      "message": "Saved Successfully"
+    },
+    "button": {
+      "ok": "OK",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    },
+    "confirmation": {
+      "title": "Are you sure?",
+      "message": "You have unsaved changes. Do you want to cancel?"
+    }
   }
-}
+
